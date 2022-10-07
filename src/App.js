@@ -14,15 +14,15 @@ function App() {
 
   const mapContainer = useRef(null);
   const map = useRef(null);
-  const [lng, setLng] = useState(-70.9);
-  const [lat, setLat] = useState(42.35);
+  const [lng, setLng] = useState(-118.4452);
+  const [lat, setLat] = useState(34.0689);
   const [zoom, setZoom] = useState(9);
 
   useEffect(() => {
   if (map.current) return; // initialize map only once
   map.current = new mapboxgl.Map({
   container: mapContainer.current,
-  style: 'mapbox://styles/mapbox/streets-v11',
+  style: 'mapbox://styles/cibic-mapbox/cl8265z24000214mooehh9my5',
   center: [lng, lat],
   zoom: zoom
   });

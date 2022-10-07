@@ -3,5 +3,33 @@ header {
   color:white;
   height:20vh;
   display:flex;
+  flex-direction:column;
+  justify-content:center;
 }
 
+.header-row {
+  display:flex;
+  justify-content:space-between;
+  line-height:0;
+  padding:5px 20px;
+}
+
+.title {
+  font-family: 'Proxima Nova', sans-serif;
+  text-transform:uppercase;
+  font-weight:500;
+  font-size:40px;
+}
+
+#city-selector {
+  width:204px;
+  height:30px;
+  background-color:#292929;
+  font-family:'Space Mono', monospace;
+  color:rgba(245,245,245,0.9);
+  letter-spacing:0.25em;
+  text-transform:uppercase;
+  font-size:1em;
+  font-weight:400;
+  padding:5px 10px;
+}

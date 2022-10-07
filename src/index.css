@@ -13,3 +13,16 @@ h1, h2 {
 h3, h4, h5 {
   font-family: 'Space Mono', sans-serif;
 }
+
+.icon {
+  width:36px;
+}
+
+.hidden {
+  display:none;
+  visibility:hidden;
+}
+
+.map-container {
+height: 60vh;
+}

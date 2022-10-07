@@ -1,0 +1,19 @@
+#switcher {
+  width:266px;
+  height:50px;
+  border:1px solid #BBBBBB;
+  display:flex;
+  justify-content:center;
+  cursor:pointer;
+}
+
+.switch-view {
+  width:133px;
+  display:flex;
+  justify-content:center;
+}
+
+.switch-view.selected {
+  background-color:white;
+}
+

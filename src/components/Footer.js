@@ -1,12 +1,14 @@
 import React from 'react';
 import logo from '../assets/cibic_logo.png';
 import './Footer.css';
+import Switcher from './Switcher.js'
 
 
 function Footer() {
   return (
     <footer>
-        <img src={logo} />
+        <Switcher />
+        <img src={logo} className="logo" />
     </footer>
   );
 }

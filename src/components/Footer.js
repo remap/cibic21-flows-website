@@ -8,7 +8,7 @@ function Footer() {
   return (
     <footer>
         <Switcher />
-        <img src={logo} className="logo" />
+        <img src={logo} className="logo" alt="CiBiC Civic Bicycle Commuting" />
     </footer>
   );
 }

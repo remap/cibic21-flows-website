@@ -1,0 +1,13 @@
+.map-container {
+height: 60vh;
+}
+
+
+#mapActions {
+  position:absolute;
+  bottom:200px;
+}
+
+#mapActions {
+  opacity:0.1;
+}

@@ -1,5 +1,6 @@
 import React from 'react';
 import './Header.css';
+import CitySelector from './CitySelector.js';
 
 import globe from '../assets/globe.svg';
 import help from '../assets/help.svg'
@@ -13,10 +14,7 @@ function Header() {
         <img className="icon" src={globe} alt="Language Translate"/>
       </div>
       <div className="header-row">
-        <select name="city-selector" id="city-selector">
-          <option value="la" id="flyUCLA">Los Angeles</option>
-          <option value="ba" id="flyBA">Buenos Aires</option>
-        </select>
+        <CitySelector />
         <img className="icon" src={help} alt="More Information" />
       </div>
     </header>

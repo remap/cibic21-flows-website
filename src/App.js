@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import './App.css';
 import Header from './components/Header.js'
 import Footer from './components/Footer.js';
-import Map from './components/Map.js';
+import Map from './components/Map/Map.js';
 
 import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
 

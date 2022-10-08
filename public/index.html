@@ -26,8 +26,10 @@
     -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Space+Mono:wght@400;700&display=swap&family=Montserrat:wght@400;700" rel="stylesheet">
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.45.0/mapbox-gl.css' rel='stylesheet' />
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.js"></script>
 
     <title>React App</title>
   </head>
@@ -45,4 +47,214 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
   </body>
+  <!-- <script>
+                // var mapMan
+                // function initMapManager() {
+                //     mapMan = new MapManager({});
+                //     mapMan.addJsResponseHandler((name, options) => {
+                //         console.log(name, options);
+                //     })
+                //     // mapMan.doAction('setToken', { accessToken: mbToken });
+                //     mapMan.doAction('init');
+                // }
+
+                // if (location.hash.indexOf('clearMapboxToken') > -1) {
+                //     localStorage.removeItem('mapboxToken');
+                // }
+
+                // let mbToken = localStorage.getItem('mapboxToken');
+                let mbToken = 'pk.eyJ1IjoiY2liaWMtbWFwYm94IiwiYSI6ImNremoyd2tieTA1dXoyb21xN3E3anZsdmcifQ.ILbkkSjS8PpQkbr_VivhgQ';
+
+                // if (!mbToken) {
+                //     const tokenForm = document.getElementById('tokenForm')
+                //     tokenForm.style.display = 'block';
+                //     const tokenInput = document.getElementById('inputMapboxToken');
+                //     document.getElementById('setTokenButton').addEventListener('click', () => {
+                //         if (tokenInput.value) {
+                //             localStorage.setItem('mapboxToken', tokenInput.value);
+                //             mbToken = localStorage.getItem('mapboxToken');
+                //             tokenForm.style.display = 'none';
+                //             if (location.hash.indexOf('clearMapboxToken')) {
+                //                 location.hash = '';
+                //             }
+                //             initMapManager();
+                //         }
+                //     })
+                // } else {
+                    // initMapManager();
+                // }
+
+                // wire buttons
+        //         const citySelector = document.getElementById('city-selector');
+        //         citySelector.addEventListener('change', () => {
+        //           if(citySelector.value == 'ba') {
+        //               mapMan.doAction('map', { method: 'flyTo', args: [{ center: [-58.428685708026535, -34.6029001441812136] }] })
+        //             } else {
+        //               mapMan.doAction('map', { method: 'flyTo', args: [{ center: [-118.4452, 34.0689] }] })
+        //           }
+        //             // mapMan.doAction('map', { method: 'flyTo', args: [{ center: [-34.602745750551776, -58.430084781580] }] })
+        //         })
+
+        //         document.getElementById('flyBA').addEventListener('select', () => {
+        //           console.log(this)
+        //             // mapMan.doAction('map', { method: 'flyTo', args: [{ center: [-34.602745750551776, -58.430084781580] }] })
+        //         })
+        //         document.getElementById('flyUCLA').addEventListener('select', () => {
+        //           console.log(this)
+        //             // mapMan.doAction('map', { method: 'flyTo', args: [{ center: [-118.4452, 34.0689] }] })
+        //         })
+        //         document.getElementById('zoomIn').addEventListener('click', () => {
+        //             mapMan.doAction('map', { method: 'zoomIn', args: [] })
+        //         })
+        //         document.getElementById('zoomOut').addEventListener('click', () => {
+        //             mapMan.doAction('map', { method: 'zoomOut', args: [] })
+        //         })
+        //         document.getElementById('currentLatLng').addEventListener('click', () => {
+        //             function handleGetCenter(name, results) {
+        //                 if (name === 'mapGetCenterResult') {
+        //                     if (results.success) {
+        //                         console.log(results.success);
+        //                         alert(results.success);
+        //                     }
+        //                     mapMan.removeJsResponseHandler(handleGetCenter);
+        //                 }
+        //             }
+        //             mapMan.addJsResponseHandler(handleGetCenter);
+        //             mapMan.doAction('map', { method: 'getCenter', args: [], results: true })
+        //         })
+
+        //         document.getElementById('addGeoJSON').addEventListener('click', () => {
+        //     mapMan.doAction('addGeoJson', {
+        //         sourceId:'uclaline',
+        //         layerStyles:{
+        //             type:'line',
+        //             layout: {
+        //             'line-join': 'round',
+        //             'line-cap': 'round'
+        //             },
+        //             paint: {
+        //             'line-color': '#2774AE',
+        //             'line-width': 8
+        //             }
+        //         },
+        //         geojson: {
+        //             "type": "Feature",
+        //             "properties": {},
+        //             "geometry": {
+        //                 "type": "LineString",
+        //                 "coordinates": [
+        //                     [
+        //                         -118.44823837280273,
+        //                         34.06425000282253
+        //                     ],
+        //                     [
+        //                         -118.44403266906738,
+        //                         34.05870378737542
+        //                     ],
+        //                     [
+        //                         -118.45184326171875,
+        //                         34.055788323465855
+        //                     ],
+        //                     [
+        //                         -118.43407630920412,
+        //                         34.03103839734782
+        //                     ],
+        //                     [
+        //                         -118.41390609741211,
+        //                         34.03160744227741
+        //                     ],
+        //                     [
+        //                         -118.40875625610352,
+        //                         34.02982916420039
+        //                     ],
+        //                     [
+        //                         -118.3952808380127,
+        //                         34.0291889749689
+        //                     ],
+        //                     [
+        //                         -118.37794303894042,
+        //                         34.037582183607775
+        //                     ],
+        //                     [
+        //                         -118.36541175842284,
+        //                         34.03388358382995
+        //                     ],
+        //                     [
+        //                         -118.34807395935059,
+        //                         34.03509275919161,
+        //                     ],
+        //                     [
+        //                         -118.355370,
+        //                         33.961018
+        //                     ]
+        //                 ]
+        //             }
+        //         }
+        //     })
+        // })
+        // document.getElementById('removeGeoJSON').addEventListener('click', () => {
+        //     mapMan.doAction('removeGeoJson', {sourceId:'uclaline'});
+        // });
+
+        // // document.getElementById('removeDrawOnLine').addEventListener('click', () => {
+        // //     mapMan.doAction('removeGeoJson', {sourceId: 'linedraw'});
+        // // })
+
+        // document.getElementById('drawOnLine').addEventListener('click', () => {
+        //     mapMan.doAction('drawOnLine', {
+        //         sourceId: 'linedraw',
+        //         stepAngle: 0.001,
+        //         geojson: {
+        //             "type": "Feature",
+        //             "properties": {},
+        //             "geometry": {
+        //                 "type": "LineString",
+        //                 "coordinates": [
+        //                     [
+        //                         -118.44823837280273,
+        //                         34.06425000282253
+        //                     ],
+        //                     [
+        //                         -118.44403266906738,
+        //                         34.05870378737542
+        //                     ],
+        //                     [
+        //                         -118.45184326171875,
+        //                         34.055788323465855
+        //                     ],
+        //                     [
+        //                         -118.43407630920412,
+        //                         34.03103839734782
+        //                     ],
+        //                     [
+        //                         -118.41390609741211,
+        //                         34.03160744227741
+        //                     ],
+        //                     [
+        //                         -118.40875625610352,
+        //                         34.02982916420039
+        //                     ],
+        //                     [
+        //                         -118.3952808380127,
+        //                         34.0291889749689
+        //                     ],
+        //                     [
+        //                         -118.37794303894042,
+        //                         34.037582183607775
+        //                     ],
+        //                     [
+        //                         -118.36541175842284,
+        //                         34.03388358382995
+        //                     ],
+        //                     [
+        //                         -118.34807395935059,
+        //                         34.03509275919161
+        //                     ]
+        //                 ]
+        //             }
+        //         }
+        //     })
+        // })
+
+            </script> -->
 </html>

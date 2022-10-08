@@ -1,14 +1,9 @@
-import React from 'react';
-
-import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
-
-mapboxgl.accessToken = 'pk.eyJ1IjoiY2liaWMtbWFwYm94IiwiYSI6ImNremoyd2tieTA1dXoyb21xN3E3anZsdmcifQ.ILbkkSjS8PpQkbr_VivhgQ';
-
-export default class MapManager {
+class MapManager {
   constructor({ wsUrl, postMessage, postMessageOrigin }) {
     if (mapboxgl === undefined) {
       throw Error('Mapbox sdk must be included before MapManager is constructed')
     }
+    console.log('constructor initiated');
     this.postMessageOrigin = postMessageOrigin;
     // websocket messaging
     this.outputs = []

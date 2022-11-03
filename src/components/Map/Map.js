@@ -6,6 +6,14 @@ import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-load
 
 import ScriptTag from 'react-script-tag';
 
+// import rideData from './data/rides.json';
+
+// console.log(rideData);
+
+// rideData.forEach(ride => {
+//   console.log(ride);
+// });
+
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiY2liaWMtbWFwYm94IiwiYSI6ImNremoyd2tieTA1dXoyb21xN3E3anZsdmcifQ.ILbkkSjS8PpQkbr_VivhgQ';
 

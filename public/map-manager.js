@@ -3,7 +3,6 @@ class MapManager {
     if (mapboxgl === undefined) {
       throw Error('Mapbox sdk must be included before MapManager is constructed')
     }
-    console.log('constructor initiated');
     this.postMessageOrigin = postMessageOrigin;
     // websocket messaging
     this.outputs = []

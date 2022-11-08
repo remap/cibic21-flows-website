@@ -1,5 +1,6 @@
 #viz {
   height:60vh;
+  overflow:hidden;
 }
 
 #art {

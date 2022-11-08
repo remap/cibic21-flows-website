@@ -15,6 +15,8 @@ function Switcher() {
     let artIconOn = document.getElementById('sparkleImgOn');
     let mapIconOff = document.getElementById('mapImgOff');
     let artIconOff = document.getElementById('sparkleImgOff');
+    let mapWindow = document.getElementById('map');
+    let artWindow = document.getElementById('viz');
 
     if (!mapDiv.classList.contains('selected')) {
       mapDiv.classList.toggle('selected');
@@ -23,6 +25,8 @@ function Switcher() {
       mapIconOff.classList.toggle('hidden');
       artIconOn.classList.toggle('hidden');
       artIconOff.classList.toggle('hidden');
+      mapWindow.classList.toggle('hidden');
+      artWindow.classList.toggle('hidden');
     }
   }
 
@@ -33,6 +37,8 @@ function Switcher() {
     let artIconOn = document.getElementById('sparkleImgOn');
     let mapIconOff = document.getElementById('mapImgOff');
     let artIconOff = document.getElementById('sparkleImgOff');
+    let mapWindow = document.getElementById('map');
+    let artWindow = document.getElementById('viz');
 
     if (!artDiv.classList.contains('selected')) {
       mapDiv.classList.toggle('selected');
@@ -41,6 +47,8 @@ function Switcher() {
       mapIconOff.classList.toggle('hidden');
       artIconOn.classList.toggle('hidden');
       artIconOff.classList.toggle('hidden');
+      mapWindow.classList.toggle('hidden');
+      artWindow.classList.toggle('hidden');
     }
   }
 

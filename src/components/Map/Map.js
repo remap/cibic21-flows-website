@@ -45,8 +45,8 @@ export default function Map() {
 
 
   return (
-    <div>
-      <div id="map" ref={mapContainer} className="map-container" />
+    <div id="map">
+      <div ref={mapContainer} className="map-container"></div>
 
         <div id="mapActions">
                 <button id="drawOnLine">Draw on Line</button>
@@ -61,10 +61,7 @@ export default function Map() {
         <ScriptTag type="text/javascript" src="/line-draw-extension.js" />
         <ScriptTag type="text/javascript" src="/geojson-drawing.js" />
         <ScriptTag type="text/javascript" src="/mapman-init.js" />
-
-
-
-        </div>
+    </div>
   );
 }
 

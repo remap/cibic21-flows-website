@@ -4,8 +4,8 @@ import './Viz.css';
 
 function Viz() {
   return (
-    <div id="viz-window">
-      <p>Map goes here...</p>
+    <div id="viz" class="hidden">
+      <p>Art goes here...</p>
     </div>
   );
 }

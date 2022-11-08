@@ -8,13 +8,51 @@ import sparkle_off from '../assets/sparkle-off.svg';
 
 
 function Switcher() {
+  function clickMap() {
+    let mapDiv = document.getElementById('mapDiv');
+    let artDiv = document.getElementById('sparkleDiv');
+    let mapIconOn = document.getElementById('mapImgOn');
+    let artIconOn = document.getElementById('sparkleImgOn');
+    let mapIconOff = document.getElementById('mapImgOff');
+    let artIconOff = document.getElementById('sparkleImgOff');
+
+    if (!mapDiv.classList.contains('selected')) {
+      mapDiv.classList.toggle('selected');
+      artDiv.classList.toggle('selected');
+      mapIconOn.classList.toggle('hidden');
+      mapIconOff.classList.toggle('hidden');
+      artIconOn.classList.toggle('hidden');
+      artIconOff.classList.toggle('hidden');
+    }
+  }
+
+  function clickArt() {
+    let mapDiv = document.getElementById('mapDiv');
+    let artDiv = document.getElementById('sparkleDiv');
+    let mapIconOn = document.getElementById('mapImgOn');
+    let artIconOn = document.getElementById('sparkleImgOn');
+    let mapIconOff = document.getElementById('mapImgOff');
+    let artIconOff = document.getElementById('sparkleImgOff');
+
+    if (!artDiv.classList.contains('selected')) {
+      mapDiv.classList.toggle('selected');
+      artDiv.classList.toggle('selected');
+      mapIconOn.classList.toggle('hidden');
+      mapIconOff.classList.toggle('hidden');
+      artIconOn.classList.toggle('hidden');
+      artIconOff.classList.toggle('hidden');
+    }
+  }
+
   return (
       <div id="switcher">
-        <div className="switch-view switch-map selected">
-          <img className="icon icon-map switch-map" src={map_on} alt="Map View - On" />
+        <div id="mapDiv" className="switch-view switch-map selected" onClick={clickMap}>
+          <img id="mapImgOn" className="icon icon-map switch-map" src={map_on} alt="Map View - On" />
+          <img id="mapImgOff" className="icon icon-map switch-map hidden" src={map_off} alt="Map View - Off" />
         </div>
-        <div className="switch-view switch-art">
-          <img className="icon icon-art switch-art" src={sparkle_off} alt="Art View - Off"/>
+        <div id="sparkleDiv" className="switch-view switch-art" onClick={clickArt}>
+          <img id="sparkleImgOff" className="icon icon-art switch-art" src={sparkle_off} alt="Art View - Off"/>
+          <img id="sparkleImgOn" className="icon icon-map switch-map hidden" src={sparkle_on} alt="Art View - On" />
         </div>
       </div>
   );

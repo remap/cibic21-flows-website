@@ -181,7 +181,6 @@ rideData.forEach(ride => {
 
 
 setTimeout(() => {
-  console.log('here we are');
 let i = 0;
 rideDataClean.forEach(data => {
   if (data.geometry.type === "LineString") {

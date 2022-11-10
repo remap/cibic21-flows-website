@@ -1,10 +1,6 @@
 #viz {
   height:60vh;
   overflow:hidden;
-}
-
-#art {
   background-color:black;
   background-image: url('../assets/satisfaction.png');
 }
-

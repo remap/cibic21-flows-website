@@ -32,8 +32,8 @@ class MapManager {
     this.mapDefaults = {
       container: 'map', // container ID
       style: 'mapbox://styles/cibic-mapbox/cl8265z24000214mooehh9my5', // style URL
-      center: [-118.4452, 34.0689], // starting position [lng, lat]
-      zoom: 9, // starting zoom,
+      center: [-118.2355343774625, 34.04157251507084], // starting position [lng, lat]
+      zoom: 10, // starting zoom,
       attributionControl: false
     }
     this.trackedProjections = {}

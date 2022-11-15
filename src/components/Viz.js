@@ -4,7 +4,7 @@ import './Viz.css';
 
 function Viz() {
   return (
-    <div id="viz" class="hidden">
+    <div id="viz" className="hidden">
       <p>Art goes here...</p>
     </div>
   );

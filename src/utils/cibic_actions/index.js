@@ -3,39 +3,22 @@ RequestURI = ""
 
 /** Requests and returns GEOJSON features from Cibic backend resources
  * 
- * @param {Date} startDate start Date for the Query
- * @param {Date} endDate end Date for the Query
  * @returns Valid GEOJSON Features to display in mapbox
  */
-export const GetGeoJSONFlows = async (startDate, endDate) =>{
-	// Formats request and headers for web request
-	// Makes web request to backend resource
-	// Waits for response
-	// formats response for frontend
-
-	// [] This can return either a promise or will hang until request returns
-
-	// Assumption that this will be all past flows as GEOJSON
-
-	return [{}]
+export const GetGeoJSONFlows = async () =>{
+	return fetch("https://sudo-cibic-renderings.s3.us-west-1.amazonaws.com/latest/latest_flows.json").then(data=>{
+		return data.json()
+	})
 }
 
 
 /** Requests and returns Rendered Graph Views from the visualization server for display in webpage 
  * 
- * @param {Date} startDate The Start Date for the Query
- * @param {Date} endDate The End Date for the Query
  * @returns An Array of URI, Timestamps
  */
-export const GetRenderedGraphViews = async (startDate, endDate) =>{
-	// Formats request and headers for web request
-	// Makes a web request to backend resource
-	// Waits for response
-	// formats response for frontend
+export const GetRenderedGraphViews = async () =>{
 
-	// [] This can return either a promise or will hang until request returns
-
-	return [{uri: "", timestamp: 0}]
+	return [{uri: "https://sudo-cibic-renderings.s3.us-west-1.amazonaws.com/latest/latest_render.png", timestamp: 0}]
 }
 
 
@@ -53,7 +36,7 @@ export const GetRenderedMapViews = async (startDate, endDate) => {
 	// Waits for response
 	// formats response for frontend
 
-	// [] This can return either a promise or will hang until request returns
+	// [?] This can return either a promise or will hang until request returns
 	
 	return [{uri:"", timestamp:0, coords:[[-80.425, 46.437],[-71.516, 46.437],[-71.516, 37.936],[-80.425, 37.936]]}]
 }

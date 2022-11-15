@@ -3,4 +3,6 @@
   overflow:hidden;
   background-color:black;
   background-image: url('../assets/satisfaction.png');
+  background-size:cover;
+  background-position:center center;
 }

@@ -5,7 +5,6 @@ import './Viz.css';
 function Viz() {
   return (
     <div id="viz" className="hidden">
-      <p>Art goes here...</p>
     </div>
   );
 }

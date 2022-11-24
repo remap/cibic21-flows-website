@@ -1,0 +1,22 @@
+#language-selector {
+  position:fixed;
+  right:5px;
+  top:5px;
+  z-index:999;
+  background-color:#292929;
+  box-shadow:1px 1px 17px rgba(0,0,0,0.1);
+}
+
+#language-selector ul {
+  list-style:none;
+  padding:5px 0;
+}
+
+.translator-option {
+  padding:0 30px;
+  font-family:'Space Mono', sans-serif;
+  font-weight:700;
+  size:15px;
+  line-height:39px;
+  width:100%;
+}

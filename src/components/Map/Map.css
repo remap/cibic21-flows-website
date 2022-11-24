@@ -4,9 +4,5 @@ height: 60vh;
 
 
 #mapActions {
-  position:fixed;
-}
-
-#mapActions {
-  opacity:0.6;
+  display:none;
 }

@@ -1,16 +1,10 @@
 import React from 'react';
 import './Map.css';
 import 'mapbox-gl/dist/mapbox-gl.css';
-
 import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
-
 import ScriptTag from 'react-script-tag';
 
-
 mapboxgl.accessToken = 'pk.eyJ1IjoiY2liaWMtbWFwYm94IiwiYSI6ImNremoyd2tieTA1dXoyb21xN3E3anZsdmcifQ.ILbkkSjS8PpQkbr_VivhgQ';
-
-
-
 
 export default function Map() {
   // const mapContainer = useRef(null);

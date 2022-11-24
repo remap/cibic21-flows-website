@@ -9,7 +9,6 @@ import help from '../assets/help.svg'
 function Header() {
 
   function handleAbout() {
-    console.log('handleAbout');
     let aboutPopup = document.getElementById('about');
     aboutPopup.classList.toggle('hidden');
   }

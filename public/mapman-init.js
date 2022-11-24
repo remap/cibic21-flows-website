@@ -226,6 +226,9 @@ rideDataClean.forEach(data => {
 }, "2000");
 
 
+
+
+
 // DRAW ON LINE ATTEMPT:
 // setTimeout(() => {
 // let i = 0;

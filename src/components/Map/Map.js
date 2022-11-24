@@ -29,23 +29,21 @@ export default function Map() {
 
 // ref={mapContainer}
 // ^^^ used in <div className="map-container" ref={mapContainer}></div>
+
+// THESE ARE DUMMY CONTROLLERS FOR TESTING PURPOSES, div can be added to the map-container:
+// <div id="mapActions">
+//                 <button id="drawOnLine">Draw on Line</button>
+//                 <button id="addGeoJSON">Add GeoJSON</button>
+//                 <button id="removeGeoJSON">Remove GeoJSON</button>
+//                 <button id="zoomIn">+</button>
+//                 <button id="zoomOut">—</button>
+//                 <button id="currentLatLng">Show Current Lat Lng</button>
+//         </div>
+
   return (
     <div id="map">
       <div className="map-container"></div>
-
-        <div id="mapActions">
-                <button id="drawOnLine">Draw on Line</button>
-                <button id="addGeoJSON">Add GeoJSON</button>
-                <button id="removeGeoJSON">Remove GeoJSON</button>
-                <button id="zoomIn">+</button>
-                <button id="zoomOut">—</button>
-                <button id="currentLatLng">Show Current Lat Lng</button>
-        </div>
-
-        <ScriptTag type="text/javascript" src="/map-manager.js" />
-        <ScriptTag type="text/javascript" src="/line-draw-extension.js" />
-        <ScriptTag type="text/javascript" src="/geojson-drawing.js" />
-        <ScriptTag type="text/javascript" src="/mapman-init.js" />
+      <ScriptTag type="text/javascript" src="/map-manager.js" />
     </div>
   );
 }

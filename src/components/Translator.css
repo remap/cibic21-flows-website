@@ -20,3 +20,8 @@
   line-height:39px;
   width:100%;
 }
+
+.translator-option:hover {
+  text-decoration:underline;
+  cursor:pointer;
+}

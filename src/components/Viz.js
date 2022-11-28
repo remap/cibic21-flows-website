@@ -3,6 +3,7 @@ import './Viz.css';
 
 
 function Viz() {
+
   return (
     <div id="viz" className="hidden">
     </div>

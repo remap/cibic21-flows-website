@@ -13,7 +13,7 @@ function Translator() {
     let aboutP2 = document.getElementById('about-p2');
     let aboutP3 = document.getElementById('about-p3');
     let cibicLink = document.createElement("a");
-    cibicLink.setAttribute('href', 'https://google.com');
+    cibicLink.setAttribute('href', 'https://cibic.bike/');
     cibicLink.setAttribute('target', '_blank');
 
     switch(e.target.id) {

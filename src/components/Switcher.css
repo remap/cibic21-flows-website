@@ -16,3 +16,11 @@
 .switch-view.selected {
   background-color:white;
 }
+
+@media (orientation: landscape) and (max-width: 736px) {
+   #switcher {
+    width:240px;
+    height:20px;
+    margin-top:5px;
+   }
+}

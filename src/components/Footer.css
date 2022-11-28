@@ -11,3 +11,9 @@ footer {
 .logo {
   width:189px;
 }
+
+@media (orientation: landscape) and (max-width: 736px) {
+   .logo {
+    width:100px;
+   }
+}

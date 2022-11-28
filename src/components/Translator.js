@@ -21,7 +21,7 @@ function Translator() {
         cityLA.text = "Los Angeles";
         cityBA.text = "Buenos Aires";
         aboutP1.textContent = "CiBiC: Civic Bicycle Commuting. Es un proyecto de investigación sobre transporte, en fase piloto, que busca impulsar a la gente a trasladarse grupalmente al trabajo en bicicleta.";
-        aboutP2.textContent = "CiBiC is a collaborative research project led by UCLA and funded by the National Science Foundation. CiBiC studies how to support bicycle commuting.";
+        aboutP2.textContent = "CiBiC es un proyecto de investigación participativo dirigido por UCLA, con el apoyo financiero de la National Science Foundation. CiBiC estudia cómo apoyar el traslado diario en bicicleta.";
         aboutP3.textContent = "Para conocer más acerca de cómo participar en CiBiC ";
         cibicLink.textContent = '¡visita nuestro Website!';
         aboutP3.appendChild(cibicLink);
@@ -30,7 +30,7 @@ function Translator() {
         cityLA.text = "洛杉磯";
         cityBA.text = "布宜諾斯艾利斯";
         aboutP1.textContent = "CiBiC 是由加州大學洛杉磯分校指導，國家科學基金會資助等，一項合作研究的專案。 CiBiC 研究如何扶助支的自車通勤。";
-        aboutP2.textContent = "CiBiC is a collaborative research project led by UCLA and funded by the National Science Foundation. CiBiC studies how to support bicycle commuting.";
+        aboutP2.textContent = "";
         aboutP3.textContent = "若您想瞭解更多有關參與 CiBiC 的資訊，";
         cibicLink.textContent = '請造訪我們的網站！';
         aboutP3.appendChild(cibicLink);

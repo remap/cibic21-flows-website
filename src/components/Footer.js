@@ -8,7 +8,7 @@ function Footer() {
   return (
     <footer>
         <Switcher />
-        <a href="https://cibic.bike/" target="_blank"><img src={logo} className="logo" alt="CiBiC Civic Bicycle Commuting" /></a>
+        <a href="https://cibic.bike/" target="_blank" rel="noopener noreferrer"><img src={logo} className="logo" alt="CiBiC Civic Bicycle Commuting" /></a>
     </footer>
   );
 }

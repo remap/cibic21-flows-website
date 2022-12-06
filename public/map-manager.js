@@ -641,13 +641,11 @@ GetGeoJSONFlows().then(data=>{
     let rideProps = ride.properties;
     ride.features.forEach(rideItem => {
       if (rideItem.geometry.type === "LineString" && rideItem.geometry.coordinates) {
-        // console.log(rideItem);
         rideItem.properties = rideProps;
         let cleanCoordinates = []
         rideItem.geometry.coordinates.forEach(rideItemCoordinates => {
           let newCoordinates = [rideItemCoordinates[0], rideItemCoordinates[1]];
           cleanCoordinates.push(newCoordinates);
-          // console.log(cleanCoordinates);
         })
         rideItem.geometry.coordinates = cleanCoordinates;
         rideDataClean.push(rideItem);
@@ -672,7 +670,7 @@ rideDataClean.forEach(data => {
             'line-cap': 'round'
             },
             paint: {
-            'line-color': colors[i],
+            'line-color': data.properties.web_viz_color,
             'line-width': 5
             }
         },
@@ -701,9 +699,9 @@ rideDataClean.forEach(data => {
 //       }
 //     })
 // })
-// 
+//
 // const sourceNameList = [];
-// 
+//
 // // ADD GEOJSON FLOWS:
 // setTimeout(() => {
 // let i = 0;
@@ -729,7 +727,7 @@ rideDataClean.forEach(data => {
 //   }
 // );
 // }, "2000");
-// 
+//
 
 
 // DRAW ON LINE ATTEMPTS:

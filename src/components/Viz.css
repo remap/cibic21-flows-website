@@ -6,3 +6,9 @@
   background-size:cover;
   background-position:center center;
 }
+
+@media only screen and (min-width: 992px) {
+  #viz {
+    height:65vh;
+  }
+}

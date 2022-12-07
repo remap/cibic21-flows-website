@@ -1,7 +1,7 @@
 #about {
-  height:100vh;
+  height:100%;
   width:100vw;
-  background-color:rgba(0,0,0,0.8);
+  background-color:rgba(0,0,0,0.67);
   position:fixed;
   top:0;
   z-index:999;
@@ -63,18 +63,11 @@
   }
 }
 
-@media (max-width: 375px) {
-  #about-focus {
-  font-size:12px;
-  height:80vh;
-  }
-}
-
 @media (max-width:900px) {
    #about-focus {
     width:90vw;
-    height:80vh;
-    font-size:12px;
+    height:60vh;
+    font-size:1em;
     overflow:scroll;
   }
 

@@ -51,7 +51,7 @@
   }
 
   #about-focus {
-    width:50vw;
+    width:60vw;
     margin:0 auto;
   }
 
@@ -66,7 +66,7 @@
 @media (max-width:900px) {
    #about-focus {
     width:90vw;
-    height:60vh;
+    height:70vh;
     font-size:1em;
     overflow:scroll;
   }

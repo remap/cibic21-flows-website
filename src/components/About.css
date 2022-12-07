@@ -1,16 +1,19 @@
 #about {
   height:100vh;
-  background-color:rgba(0,0,0,0.9);
+  width:100vw;
+  background-color:rgba(0,0,0,0.8);
   position:fixed;
   top:0;
   z-index:999;
   display:flex;
   align-items:center;
+  justify-content:center;
   overflow:scroll;
 }
 
 #about-focus {
-  width:100vw;
+  width:90vw;
+  margin:0 auto;
   background-color:#2A2A2A;
 }
 
@@ -56,13 +59,28 @@
 
 @media (max-width: 320px) {
   #about-focus {
-  padding:200px 0 0 0;
+    overflow:scroll;
   }
 }
 
-
-@media (orientation: landscape) {
-   #about-focus {
-  padding:200px 0 0 0;
+@media (max-width: 375px) {
+  #about-focus {
+  font-size:12px;
+  height:80vh;
   }
+}
+
+@media (max-width:900px) {
+   #about-focus {
+    width:90vw;
+    height:80vh;
+    font-size:12px;
+    overflow:scroll;
+  }
+
+  .about-content img {
+    margin-top:-20px;
+    width:70px;
+  }
+
 }

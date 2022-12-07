@@ -613,8 +613,6 @@ citySelector.addEventListener('change', () => {
 // })
 
 
-// TESTING FLOWS JSON
-
 const GetGeoJSONFlows = async () =>{
   return fetch("https://sudo-cibic-renderings.s3.us-west-1.amazonaws.com/latest/latest_flows.json").then(async data=>{
     return data.json()
@@ -626,13 +624,14 @@ const rideDataClean = [];
 let rideData = GetGeoJSONFlows()
 
 
-const colors = [];
-while (colors.length < 100) {
-    do {
-        var color = Math.floor((Math.random()*1000000)+1);
-    } while (colors.indexOf(color) >= 0);
-    colors.push("#" + ("000000" + color.toString(16)).slice(-6));
-}
+// RANDOM COLORS ARRAY FOR TESTING PURPOSES
+// const colors = [];
+// while (colors.length < 100) {
+//     do {
+//         var color = Math.floor((Math.random()*1000000)+1);
+//     } while (colors.indexOf(color) >= 0);
+//     colors.push("#" + ("000000" + color.toString(16)).slice(-6));
+// }
 
 
 GetGeoJSONFlows().then(data=>{

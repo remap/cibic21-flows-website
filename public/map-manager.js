@@ -614,7 +614,7 @@ citySelector.addEventListener('change', () => {
 
 
 const GetGeoJSONFlows = async () =>{
-  return fetch("https://sudo-cibic-renderings.s3.us-west-1.amazonaws.com/latest/latest_flows.json").then(async data=>{
+  return fetch("https://d1yts6u8a9himl.cloudfront.net/web_viz.json").then(async data=>{
     return data.json()
   })
 }

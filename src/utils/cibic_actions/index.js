@@ -6,7 +6,7 @@
  * @returns Valid GEOJSON Features to display in mapbox
  */
 export const GetGeoJSONFlows = async () =>{
-	return fetch("https://sudo-cibic-renderings.s3.us-west-1.amazonaws.com/latest/latest_flows.json").then(data=>{
+	return fetch("https://d1yts6u8a9himl.cloudfront.net/web_viz.json").then(data=>{
 		return data.json()
 	})
 }
@@ -18,7 +18,7 @@ export const GetGeoJSONFlows = async () =>{
  */
 export const GetRenderedGraphViews = async () =>{
 
-	return [{uri: "https://sudo-cibic-renderings.s3.us-west-1.amazonaws.com/latest/latest_render.png", timestamp: 0}]
+	return [{uri: "https://d1yts6u8a9himl.cloudfront.net/LA-recent.jpg", timestamp: 0}]
 }
 
 

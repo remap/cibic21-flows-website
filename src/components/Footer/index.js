@@ -1,7 +1,7 @@
 import React from 'react';
-import logo from '../assets/cibic_logo.png';
+import logo from '../../assets/cibic_logo.png';
 import './Footer.css';
-import Switcher from './Switcher.js'
+import Switcher from '../Switcher'
 
 
 function Footer() {

@@ -1,10 +1,10 @@
 import React from 'react';
 import './Switcher.css';
 
-import map_on from '../assets/map-on.svg';
-import map_off from '../assets/map-off.svg';
-import sparkle_on from '../assets/sparkle-on.svg';
-import sparkle_off from '../assets/sparkle-off.svg';
+import map_on from '../../assets/map-on.svg';
+import map_off from '../../assets/map-off.svg';
+import sparkle_on from '../../assets/sparkle-on.svg';
+import sparkle_off from '../../assets/sparkle-off.svg';
 
 
 function Switcher() {

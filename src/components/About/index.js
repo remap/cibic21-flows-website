@@ -1,7 +1,7 @@
 import React from 'react';
 import './About.css';
-import closeX from '../assets/x.svg';
-import logo from '../assets/cibic_round.png';
+import closeX from '../../assets/x.svg';
+import logo from '../../assets/cibic_round.png';
 
 
 function About() {

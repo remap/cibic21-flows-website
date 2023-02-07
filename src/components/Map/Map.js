@@ -2,8 +2,8 @@ import React, {useState, useEffect, useRef, useContext} from 'react';
 import './Map.css';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
-import ScriptTag from 'react-script-tag';
 import { RegionContext } from '../../app/regionContext';
+import { useRides } from '../../utils/ride_utils';
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiY2liaWMtbWFwYm94IiwiYSI6ImNremoyd2tieTA1dXoyb21xN3E3anZsdmcifQ.ILbkkSjS8PpQkbr_VivhgQ';
 
@@ -16,56 +16,105 @@ export default function Map() {
   const [lng, setLng] = useState(region_coords[1]);
   const [lat, setLat] = useState(region_coords[0]);
   const [zoom, setZoom] = useState(10);
+  const [layers, setLayers] = useState([]);
 
-  
+  const rides = useRides(region_id);
+
+  const render_rides = (these_rides)=>{
+    if(!map) return
+    for(const layer of layers){
+      map.removeLayer(layer);
+      map.removeSource(layer);
+    }
+    let newLayers = []
+    for(const [i, ride] of these_rides.entries()){
+      //console.log(ride.properties)
+       setTimeout(()=>{
+         map.addSource('ride'+i, {
+           type:"geojson",
+           data: ride.geoData
+         })
+         map.addLayer({
+           "id": "ride"+i,
+           "type": "line",
+           "source": "ride"+i,
+           'layout': {
+             'line-join': 'round',
+             'line-cap': 'round'
+             },
+             'paint': {
+             'line-color': ride.properties["web_viz_color"],
+             'line-width': 5
+             }
+         })
+         newLayers.push("ride"+i)
+       }, 25)
+     }
+     setLayers(oldLayers => newLayers)
+  }
+
+  // Run once on start
   useEffect(() => {
+
+    // Get Closest City and region
     GetRegion()
-    if (map) return; // initialize map only once
+
+    //If there is already a map, stop effect.
+    if (map) return;
+
+    // Create New Map
     let thisMap = new mapboxgl.Map({
       container: mapContainer.current,
       style: 'mapbox://styles/cibic-mapbox/cl8265z24000214mooehh9my5',
       center: [lng, lat],
       zoom: zoom
     });
+    
+    // Set map state as map.
     setMap(thisMap)
   }, []);
 
+
+  // Run Effect if map updates
   useEffect(() => {
     if (!map) return; // wait for map to initialize
     
-    console.log('adds move callback')
+    // Add a callback on movement
     map.on('move', () => {
-      console.log('moving')
       let newLat = map.getCenter().lat.toFixed(4)
       let newLong = map.getCenter().lng.toFixed(4)
+      
       setLng(old=>newLong);
       setLat(old=>newLat);
       setZoom(old=>map.getZoom().toFixed(2));
+      
+      // Update Region With new coords
       CheckRegionWithCoord([newLat, newLong])
     });
-    
-  }, [map]);
 
+    map.on('load', ()=>{
+      render_rides(rides)
+    })
+    
+  }, [map, rides]);
+
+  //Run if new map or if region coords change from dropdown
   useEffect(()=>{
     if (!map) return; // wait for map to initialize
-    console.log('updating region coords')
     map.setCenter([region_coords[1], region_coords[0]])
   }, [region_coords, map])
 
 
-// ref={mapContainer}
-// ^^^ used in <div className="map-container" ref={mapContainer}></div>
+  useEffect(()=>{
 
-// THESE ARE DUMMY CONTROLLERS FOR TESTING PURPOSES, div can be added to the map-container:
-// <div id="mapActions">
-//                 <button id="drawOnLine">Draw on Line</button>
-//                 <button id="addGeoJSON">Add GeoJSON</button>
-//                 <button id="removeGeoJSON">Remove GeoJSON</button>
-//                 <button id="zoomIn">+</button>
-//                 <button id="zoomOut">—</button>
-//                 <button id="currentLatLng">Show Current Lat Lng</button>
-//         </div>
-//<ScriptTag type="text/javascript" src="/map-manager.js" />
+    if (!map) return; // wait for map to initialize
+    //render_rides(rides)
+    // Process and add them to the map as layers
+
+  }, [rides])
+
+
+
 
   return (
     <div id="map" ref={mapContainer}></div>

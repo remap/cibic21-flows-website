@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React from 'react';
 import './Header.css';
 import CitySelector from '../CitySelector';
 import About from '../About';

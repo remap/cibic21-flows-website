@@ -1,14 +1,19 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { cities, findClosestCity } from '../utils/map_utils';
 
 export const RegionContext = React.createContext({});
 
+
+let accepted_langs = ["en", "es", "zh"]
 
 const RegionProvider = ({children})=>{
 	const [userRegion, setUserRegion] = useState(cities[0].id)
 	const [regionCoords, setRegionCoords] = useState([cities[0].lat, cities[0].long])
 	const [userLang, setUserLang] = useState("en")
 
+	useEffect(()=>{
+		GetLang()
+	}, [])
 
 	const GetRegion = ()=>{
 		navigator.geolocation.getCurrentPosition((data)=>{
@@ -36,14 +41,22 @@ const RegionProvider = ({children})=>{
 	}
 
 	const GetLang = ()=>{
-		let accepted_langs = ["en", "es", "zh"]
 		let lang_code = navigator.language
 		let lang ="en"
 		if(lang_code.includes('-')){
 			lang_code = lang_code.split('-')[0]
 		}
 		lang = lang_code
-		setUserLang(lang)
+		if(accepted_langs.includes(lang)){
+			setUserLang(lang)
+		}
+	}
+
+	const SetLang =(lang_code)=>{
+		if(accepted_langs.includes(lang_code)){
+			console.log('setting lang: ', lang_code)
+			setUserLang(lang_code)
+		}
 	}
 
 
@@ -53,7 +66,8 @@ const RegionProvider = ({children})=>{
 		region_coords: regionCoords,
 		GetRegion: GetRegion,
 		CheckRegionWithCoord: CheckRegionWithCoord,
-		UpdateRegionWithID: UpdateRegionWithID
+		UpdateRegionWithID: UpdateRegionWithID,
+		SetLang:SetLang
 	}
 
 	return (

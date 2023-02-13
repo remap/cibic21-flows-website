@@ -24,9 +24,9 @@ function App() {
     <div className="App">
       <RegionProvider>
       <Header />
-      <Map Hidden={viewIndex==0}/>
-      <Viz Hidden={viewIndex==1}/>
-      <Gallery Hidden={viewIndex==2}/>
+      <Map Hidden={viewIndex===0}/>
+      <Viz Hidden={viewIndex===1}/>
+      <Gallery Hidden={viewIndex===2}/>
       <Footer ChangeView={changeView}/>
       </RegionProvider>
     </div>

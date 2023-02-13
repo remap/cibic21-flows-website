@@ -24,22 +24,22 @@ function Switcher({OnChange}) {
 
   return (
       <div id="switcher">
-        <div id="mapDiv" className={classNames("switch-view", {"selected": Selected==0})} onClick={()=>{handleChange(0)}}>
-          {Selected==0?(
+        <div id="mapDiv" className={classNames("switch-view", {"selected": Selected===0})} onClick={()=>{handleChange(0)}}>
+          {Selected===0?(
             <img id="mapImgOn" className="icon icon-map switch-map" src={map_on} alt="Map View - On" />
             ):(
               <img id="mapImgOff" className="icon icon-map switch-map" src={map_off} alt="Map View - Off" />
             )}
         </div>
-        <div id="sparkleDiv" className={classNames("switch-view", {"selected": Selected==1})} onClick={()=>{handleChange(1)}}>
-          {Selected==1?(
+        <div id="sparkleDiv" className={classNames("switch-view", {"selected": Selected===1})} onClick={()=>{handleChange(1)}}>
+          {Selected===1?(
             <img id="sparkleImgOn" className="icon" src={sparkle_on} alt="Art View - On" />
             ):(
               <img id="sparkleImgOff" className="icon" src={sparkle_off} alt="Art View - Off"/>
             )}
         </div>
-        <div id="galleryDiv" className={classNames("switch-view", {"selected": Selected==2})} onClick={()=>{handleChange(2)}}>
-          {Selected==2?(
+        <div id="galleryDiv" className={classNames("switch-view", {"selected": Selected===2})} onClick={()=>{handleChange(2)}}>
+          {Selected===2?(
               <img id="galleryImgOn" className="icon" src={gallery_on} alt="Gallery View - On" />
             ):(
               <img id="galleryImgOff" className="icon" src={gallery_off} alt="Gallery View - Off"/>

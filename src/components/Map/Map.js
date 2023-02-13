@@ -4,10 +4,11 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
 import { RegionContext } from '../../app/regionContext';
 import { useRides } from '../../utils/ride_utils';
+import classNames from 'classnames';
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiY2liaWMtbWFwYm94IiwiYSI6ImNremoyd2tieTA1dXoyb21xN3E3anZsdmcifQ.ILbkkSjS8PpQkbr_VivhgQ';
 
-export default function Map() {
+export default function Map({Hidden}) {
   const mapContainer = useRef(null);
   const [map, setMap] = useState(null);
 
@@ -117,7 +118,7 @@ export default function Map() {
 
 
   return (
-    <div id="map" ref={mapContainer}></div>
+    <div id="map" className={classNames({"hidden": !Hidden})} ref={mapContainer}></div>
   );
 }
 

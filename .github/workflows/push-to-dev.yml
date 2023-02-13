@@ -17,13 +17,13 @@ jobs:
       with:
         node-version: '16.14.0'
 
-    - name: Install Dependencies  
-      run: npm install
+    - uses: borales/actions-yarn@v2.0.0
+          with:
+            cmd: install
 
-    - name: Build
-      run: npm run build
-      env:
-         CI: false
+    - uses: borales/actions-yarn@v2.0.0
+          with:
+            cmd: build
 
     - name: Deploy to Development Instance
       uses: easingthemes/ssh-deploy@v2.1.5

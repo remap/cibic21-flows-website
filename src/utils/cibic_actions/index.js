@@ -5,7 +5,8 @@
  *
  * @returns Valid GEOJSON Features to display in mapbox
  */
-export const GetGeoJSONFlows = async () =>{
+export const GetGeoJSONFlows = async (region) =>{
+	//TODO Differentiate regions
 	return fetch("https://d1yts6u8a9himl.cloudfront.net/web_viz.json").then(data=>{
 		return data.json()
 	})

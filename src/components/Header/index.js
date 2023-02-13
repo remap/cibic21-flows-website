@@ -1,13 +1,13 @@
 import React from 'react';
 import './Header.css';
-import CitySelector from './CitySelector.js';
-import About from './About.js';
-import Translator from './Translator.js';
-import globe from '../assets/globe.svg';
-import help from '../assets/help.svg'
+import CitySelector from '../CitySelector';
+import About from '../About';
+import Translator from '../Translator';
+import globe from '../../assets/globe.svg';
+import help from '../../assets/help.svg'
 
 
-function Header() {
+const Header =()=>{
 
   function handleAbout() {
     let aboutPopup = document.getElementById('about');

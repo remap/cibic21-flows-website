@@ -18,40 +18,39 @@ export default function Map({Hidden}) {
   const [lat, setLat] = useState(region_coords[0]);
   const [zoom, setZoom] = useState(10);
   const [layers, setLayers] = useState([]);
+  const [hasRun, setHasRun]  = useState(false)
 
   const rides = useRides(region_id);
 
   const render_rides = (these_rides)=>{
     if(!map) return
-    for(const layer of layers){
-      map.removeLayer(layer);
-      map.removeSource(layer);
-    }
-    let newLayers = []
-    for(const [i, ride] of these_rides.entries()){
-      //console.log(ride.properties)
-       setTimeout(()=>{
-         map.addSource('ride'+i, {
+    if (map.getLayer("rides")) {
+      map.removeLayer("rides");
+  }
+  
+  if (map.getSource("rides")) {
+      map.removeSource("rides");
+  }
+
+    map.addSource('rides', {
            type:"geojson",
-           data: ride.geoData
+           data: these_rides
          })
-         map.addLayer({
-           "id": "ride"+i,
+
+    map.addLayer({
+           "id": "rides",
            "type": "line",
-           "source": "ride"+i,
+           "source": "rides",
            'layout': {
              'line-join': 'round',
              'line-cap': 'round'
              },
              'paint': {
-             'line-color': ride.properties["web_viz_color"],
-             'line-width': 5
+              'line-color': ["get", "web_viz_color"],
+              'line-width': 5
              }
          })
-         newLayers.push("ride"+i)
-       }, 25)
-     }
-     setLayers(oldLayers => newLayers)
+         setHasRun(true)
   }
 
   // Run once on start
@@ -96,6 +95,29 @@ export default function Map({Hidden}) {
     map.on('load', ()=>{
       render_rides(rides)
     })
+
+    map.on('click',"rides" , (e)=>{
+      console.log(e.features[0])
+      let coordinates = e.features[0].geometry.coordinates[0];
+      console.log(coordinates)
+      while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+        coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+        }
+         
+        new mapboxgl.Popup()
+        .setLngLat(coordinates)
+        .setHTML(JSON.stringify(e.features[0].properties))
+        .addTo(map);
+    })
+
+    map.on('mouseenter', 'rides', () => {
+      map.getCanvas().style.cursor = 'pointer';
+      });
+       
+      // Change it back to a pointer when it leaves.
+      map.on('mouseleave', 'rides', () => {
+      map.getCanvas().style.cursor = '';
+      });
     
   }, [map, rides]);
 
@@ -118,7 +140,9 @@ export default function Map({Hidden}) {
 
 
   return (
-    <div id="map" className={classNames({"hidden": !Hidden})} ref={mapContainer}></div>
+    <div className={classNames({"hidden": !Hidden})} >
+    <div id="map" ref={mapContainer}></div>
+    </div>
   );
 }
 

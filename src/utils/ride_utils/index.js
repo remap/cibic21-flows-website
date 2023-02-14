@@ -14,9 +14,14 @@ export const useRides = (region_id)=>{
 			for(const ride of data){
 				let lineFeature = ride.features.find(e => e.geometry.type === "LineString") 
 				let newRide = {geoData: lineFeature, properties:ride.properties} 
-				lines.push(newRide)
+				lineFeature['properties'] = ride.properties
+				lines.push(lineFeature)
 			}
-			setRides(lines)
+			let collection = {
+				'type': 'FeatureCollection',
+				'features': lines
+			}
+			setRides(collection)
 		})
 	}, [])
 

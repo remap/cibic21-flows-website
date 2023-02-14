@@ -45,7 +45,7 @@ export default function Map({Hidden}) {
              },
              'paint': {
               'line-color': ["get", "web_viz_color"],
-              'line-width': 5
+              'line-width': 4
              }
          })
   }

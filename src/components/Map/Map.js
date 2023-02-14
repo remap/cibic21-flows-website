@@ -17,8 +17,6 @@ export default function Map({Hidden}) {
   const [lng, setLng] = useState(region_coords[1]);
   const [lat, setLat] = useState(region_coords[0]);
   const [zoom, setZoom] = useState(10);
-  const [layers, setLayers] = useState([]);
-  const [hasRun, setHasRun]  = useState(false)
 
   const rides = useRides(region_id);
 
@@ -50,7 +48,6 @@ export default function Map({Hidden}) {
               'line-width': 5
              }
          })
-         setHasRun(true)
   }
 
   // Run once on start

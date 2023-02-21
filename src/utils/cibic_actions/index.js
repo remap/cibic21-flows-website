@@ -41,3 +41,8 @@ export const GetRenderedMapViews = async (startDate, endDate) => {
 
 	return [{uri:"", timestamp:0, coords:[[-80.425, 46.437],[-71.516, 46.437],[-71.516, 37.936],[-80.425, 37.936]]}]
 }
+
+
+export const GetPhotoList = async(number, page)=>{
+
+}

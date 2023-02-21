@@ -89,34 +89,60 @@ export default function Map({Hidden}) {
       CheckRegionWithCoord([newLat, newLong])
     });
 
-    map.on('load', ()=>{
-      render_rides(rides)
-    })
-
-    map.on('click',"rides" , (e)=>{
-      console.log(e.features[0])
+    const handleShowInfo = (e)=>{
+      console.log(e.features[0].properties)
       let coordinates = e.features[0].geometry.coordinates[0];
-      console.log(coordinates)
       while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
         coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
         }
          
         new mapboxgl.Popup()
         .setLngLat(coordinates)
-        .setHTML(JSON.stringify(e.features[0].properties))
+        .setHTML(`
+        <div class='ride-info'>
+          <h3>RIDE DATA</h3>
+          <ul>
+            <li>Flow: FLOW A</li>
+            <li>Flow: FLOW A</li>
+            <li>Flow: FLOW A</li>
+            <li>Flow: FLOW A</li>
+            <li>Flow: FLOW A</li>
+            <li>Flow: FLOW A</li>
+          </ul>
+        </div>
+        `)
+        /*JSON.stringify(e.features[0].properties)*/
         .addTo(map);
-    })
+        // below is used to stop propagation
+       e.originalEvent.stopPropagation();
+    }
 
-    map.on('mouseenter', 'rides', () => {
+    const handleMouseEnter = (e)=>{
       map.getCanvas().style.cursor = 'pointer';
-      });
-       
-      // Change it back to a pointer when it leaves.
-      map.on('mouseleave', 'rides', () => {
+    }
+
+    const handleMouseExit = (e)=>{
       map.getCanvas().style.cursor = '';
-      });
+    }
+
+    map.on('click', "rides", handleShowInfo)
+
+    map.on('mouseenter', 'rides', handleMouseEnter);
+       
+    // Change it back to a pointer when it leaves.
+    map.on('mouseleave', 'rides', handleMouseExit);
+
+    return function(){
+    }
     
-  }, [map, rides]);
+  }, [map]);
+
+  useEffect(()=>{
+    if (!map) return; // wait for map to initialize
+    map.on('load', ()=>{
+      render_rides(rides)
+    })
+  },[map, rides])
 
   //Run if new map or if region coords change from dropdown
   useEffect(()=>{

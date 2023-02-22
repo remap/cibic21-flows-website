@@ -16,8 +16,6 @@ function About() {
     }
   }
 
-  console.log(translations.aboutP1[lang])
-
   return (
       <div id="about" onClick={handleAbout} className="about-close hidden">
         <div id="about-focus">

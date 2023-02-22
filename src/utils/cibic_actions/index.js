@@ -43,6 +43,11 @@ export const GetRenderedMapViews = async (startDate, endDate) => {
 }
 
 
-export const GetPhotoList = async(number, page)=>{
-
+export const GetPhotoList = async()=>{
+	let cdn_photo_url = "https://d1a1668ubdx5yp.cloudfront.net/photos/"
+	return fetch('https://d1a1668ubdx5yp.cloudfront.net/data/gallery.json').then((data)=>{
+		return data.json()
+	}).then((data)=>{
+		return data.map((e)=> cdn_photo_url+e)
+	})
 }

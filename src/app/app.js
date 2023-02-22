@@ -8,7 +8,6 @@ import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-load
 import RegionProvider from './regionContext';
 import { useState } from 'react';
 import Gallery from '../components/Gallery';
-import { GetPhotoList } from '../utils/cibic_actions';
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiY2liaWMtbWFwYm94IiwiYSI6ImNremoyd2tieTA1dXoyb21xN3E3anZsdmcifQ.ILbkkSjS8PpQkbr_VivhgQ';
 

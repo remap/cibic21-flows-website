@@ -1,0 +1,33 @@
+name: Deploy dev branch to cibic-viz.sudo.codes
+
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@master
+    
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '16.14.0'
+
+    - name: Install Dependencies
+      run: yarn install
+
+    - name: Build
+      run: yarn build 
+
+    - name: Deploy to Development Instance
+      uses: easingthemes/ssh-deploy@v2.1.5
+      env:
+        SSH_PRIVATE_KEY: ${{ secrets.EC2_RSA_PRIVATE_KEY }}
+        SOURCE: "./build"
+        REMOTE_HOST: ${{secrets.REMOTE_HOST_ADDR}}
+        REMOTE_USER: "ubuntu"
+        TARGET: "/home/ubuntu/cibic_visualization_site"

@@ -2,9 +2,16 @@
   height:60vh;
   overflow:hidden;
   background-color:black;
-  background-image: url('https://d1yts6u8a9himl.cloudfront.net/LA-recent.jpg');
   background-size:cover;
   background-position:center center;
+}
+
+.region-LA{
+  background-image: url('https://d1yts6u8a9himl.cloudfront.net/LA-recent.jpg');
+}
+
+.region-BA{
+  background-image: url('https://d1yts6u8a9himl.cloudfront.net/BA-recent.jpg');
 }
 
 @media only screen and (min-width: 992px) {

@@ -1,7 +1,28 @@
 .Gallery{
+  height: 70vh;
+  overflow:scroll;
 	color: white;
-	height: 100%;
-	border: 1px solid white;
 	text-align: center;
-	padding: 10%;
+}
+
+#gallery {
+  column-count: 4;
+  column-gap: 10px;
+}
+
+.gallery-item {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.gallery-item:hover img {
+  opacity: 0.8;
+  cursor:pointer;
 }

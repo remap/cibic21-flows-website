@@ -5,16 +5,14 @@ import 'react-image-lightbox/style.css'
 import './Gallery.css'
 import { GetPhotoList } from '../../utils/cibic_actions'
 
-
-
 const Gallery = ({Hidden})=>{
 
   const [selectedImageIndex, setSelectedImageIndex] = useState(null);
-
   const [images, setImages] = useState([]);
 
   useEffect(() => {
     GetPhotoList().then((data) => {
+      data.reverse();
       setImages(data.map((src, index) => ({
         id: index,
         src: src,
@@ -30,9 +28,6 @@ const Gallery = ({Hidden})=>{
   const closeLightbox = () => {
     setSelectedImageIndex(null);
   };
-
-  console.log('images');
-  console.log(images);
 
 
 // images for testing
@@ -118,7 +113,7 @@ const Gallery = ({Hidden})=>{
               window.dispatchEvent(new Event('resize'));
             }}
             onCloseRequest={closeLightbox}
-            imageCaption={images[selectedImageIndex].caption}
+            // imageCaption={images[selectedImageIndex].caption}
           />
         )}
       </div>

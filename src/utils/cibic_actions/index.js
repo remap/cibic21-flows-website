@@ -41,3 +41,23 @@ export const GetRenderedMapViews = async (startDate, endDate) => {
 
 	return [{uri:"", timestamp:0, coords:[[-80.425, 46.437],[-71.516, 46.437],[-71.516, 37.936],[-80.425, 37.936]]}]
 }
+
+
+export const GetPhotoList = async(region_id)=>{
+	let cdn_photo_url = "https://d1a1668ubdx5yp.cloudfront.net/photos/"
+
+	if(region_id == "la"){
+		return fetch('https://d1a1668ubdx5yp.cloudfront.net/data/LA-gallery.json').then((data)=>{
+			return data.json()
+		}).then((data)=>{
+			return data.map((e)=> cdn_photo_url+e)
+		})
+	}
+	if(region_id == "ba"){
+		return fetch('https://d1a1668ubdx5yp.cloudfront.net/data/BA-gallery.json').then((data)=>{
+			return data.json()
+		}).then((data)=>{
+			return data.map((e)=> cdn_photo_url+e)
+		})
+	}
+}

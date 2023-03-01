@@ -1,27 +1,29 @@
 import classNames from 'classnames'
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import Lightbox from 'react-image-lightbox'
 import 'react-image-lightbox/style.css'
 import './Gallery.css'
 import { GetPhotoList } from '../../utils/cibic_actions'
+import { RegionContext } from '../../app/regionContext'
 
 
 
 const Gallery = ({Hidden})=>{
 
   const [selectedImageIndex, setSelectedImageIndex] = useState(null);
+  const {region_name} = useContext(RegionContext)
 
   const [images, setImages] = useState([]);
 
   useEffect(() => {
-    GetPhotoList().then((data) => {
+    GetPhotoList(region_name).then((data) => {
       setImages(data.map((src, index) => ({
         id: index,
         src: src,
         alt: `Image ${index}`
       })));
     });
-  }, []);
+  }, [region_name]);
 
    const openLightbox = (index) => {
     setSelectedImageIndex(index);
@@ -31,10 +33,11 @@ const Gallery = ({Hidden})=>{
     setSelectedImageIndex(null);
   };
 
+  //TODO: Remove console.logs
   console.log('images');
   console.log(images);
 
-
+ // TODO: Remove testing comments
 // images for testing
 //   const images = [
 //   {

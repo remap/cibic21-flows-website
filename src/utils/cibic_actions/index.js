@@ -46,14 +46,14 @@ export const GetRenderedMapViews = async (startDate, endDate) => {
 export const GetPhotoList = async(region_id)=>{
 	let cdn_photo_url = "https://d1a1668ubdx5yp.cloudfront.net/photos/"
 
-	if(region_id == "la"){
+	if(region_id === "la"){
 		return fetch('https://d1a1668ubdx5yp.cloudfront.net/data/LA-gallery.json').then((data)=>{
 			return data.json()
 		}).then((data)=>{
 			return data.map((e)=> cdn_photo_url+e)
 		})
 	}
-	if(region_id == "ba"){
+	if(region_id === "ba"){
 		return fetch('https://d1a1668ubdx5yp.cloudfront.net/data/BA-gallery.json').then((data)=>{
 			return data.json()
 		}).then((data)=>{

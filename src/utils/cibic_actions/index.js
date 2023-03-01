@@ -7,7 +7,7 @@
  */
 export const GetGeoJSONFlows = async (region) =>{
 	//TODO Differentiate regions
-	return fetch("https://d1yts6u8a9himl.cloudfront.net/web_viz.json").then(data=>{
+	return fetch("https://d1a1668ubdx5yp.cloudfront.net/data/web_viz.json").then(data=>{
 		return data.json()
 	})
 }

@@ -6,8 +6,6 @@ import './Gallery.css'
 import { GetPhotoList } from '../../utils/cibic_actions'
 import { RegionContext } from '../../app/regionContext'
 
-
-
 const Gallery = ({Hidden})=>{
 
   const [selectedImageIndex, setSelectedImageIndex] = useState(null);
@@ -17,6 +15,7 @@ const Gallery = ({Hidden})=>{
 
   useEffect(() => {
     GetPhotoList(region_name).then((data) => {
+      data.reverse();
       setImages(data.map((src, index) => ({
         id: index,
         src: src,
@@ -33,11 +32,7 @@ const Gallery = ({Hidden})=>{
     setSelectedImageIndex(null);
   };
 
-  //TODO: Remove console.logs
-  console.log('images');
-  console.log(images);
 
- // TODO: Remove testing comments
 // images for testing
 //   const images = [
 //   {
@@ -121,7 +116,7 @@ const Gallery = ({Hidden})=>{
               window.dispatchEvent(new Event('resize'));
             }}
             onCloseRequest={closeLightbox}
-            imageCaption={images[selectedImageIndex].caption}
+            // imageCaption={images[selectedImageIndex].caption}
           />
         )}
       </div>

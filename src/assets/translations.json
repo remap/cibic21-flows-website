@@ -30,5 +30,37 @@
 		"en": "visit our website!",
 		"es": "¡visita nuestro Website!",
 		"zh": "請造訪我們的網站！"
+	},
+	"popup":{
+		"rideData": {
+			"en": "Ride data",
+			"es": "Datos de viaje",
+			"zh": "骑行数据"
+		},
+		"flow": {
+			"en": "Flow",
+			"es": "Flow",
+			"zh": "Flow"
+		},
+		"pod": {
+			"en": "Pod",
+			"es": "Pod",
+			"zh": "Pod"
+		},
+		"satisfaction": {
+			"en": "Satisfaction",
+			"es": "Satisfacción",
+			"zh": "满意度"
+		},
+		"rideCharacteristics": {
+			"en": "Ride Characteristics",
+			"es": "Características del viaje",
+			"zh": "骑行特性"
+		},
+		"rideDescription": {
+			"en": "Ride Description",
+			"es": "Descripción del viaje",
+			"zh": "游乐设施说明"
+		}
 	}
 }

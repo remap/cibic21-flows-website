@@ -17,11 +17,9 @@ const RegionProvider = ({children})=>{
 
 	const GetRegion = ()=>{
 		navigator.geolocation.getCurrentPosition((data)=>{
-			console.log('got coords')
 			let region = findClosestCity(data.coords.latitude, data.coords.longitude)
 			setRegionCoords([region.lat,region.long])
 			setUserRegion(region.id)
-			console.log("region: ", region)
 		}, (err)=>{
 			console.log(err)
 		})
@@ -29,14 +27,12 @@ const RegionProvider = ({children})=>{
 
 	const CheckRegionWithCoord = (newCoords)=>{
 		let region = findClosestCity(newCoords[0], newCoords[1])
-		console.log(region)
 		setUserRegion(region.id)
 	}
 
 	const UpdateRegionWithID = (id)=>{
 		let region = cities.find( e => e.id === id)
 		setRegionCoords([region.lat, region.long])
-		console.log("Updated region: ", region.id)
 		setUserRegion(region.id)
 	}
 
@@ -54,7 +50,6 @@ const RegionProvider = ({children})=>{
 
 	const SetLang =(lang_code)=>{
 		if(accepted_langs.includes(lang_code)){
-			console.log('setting lang: ', lang_code)
 			setUserLang(lang_code)
 		}
 	}

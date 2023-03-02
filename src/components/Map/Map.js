@@ -23,7 +23,7 @@ const Popup = ({lang, flow, pod, satisfaction, rideChar, rideDes})=>(
             <li><b>{translations.popup.rideCharacteristics[lang]}:</b> {rideChar}</li>
             <li><b>{translations.popup.rideDescription[lang]}:</b> {rideDes}</li>
           </ul>
-        </div> 
+        </div>
 
 )
 
@@ -34,9 +34,9 @@ const Popup = ({lang, flow, pod, satisfaction, rideChar, rideDes})=>(
 export default function Map({Hidden}) {
   const mapContainer = useRef(null);
   const [map, setMap] = useState(null);
-  const [selectedRide, setSelectedRide] = useState(null) 
+  const [selectedRide, setSelectedRide] = useState(null)
 
-  const {region_coords, region_id, CheckRegionWithCoord, GetRegion, lang} = useContext(RegionContext);
+  const {region_coords, region_id, CheckRegionWithCoord, GetRegion, lang, city_zoom} = useContext(RegionContext);
 
   const rootElement = document.createElement("div")
   const popupNode = createRoot(rootElement)
@@ -49,7 +49,7 @@ export default function Map({Hidden}) {
 
   const [lng, setLng] = useState(region_coords[1]);
   const [lat, setLat] = useState(region_coords[0]);
-  const [zoom, setZoom] = useState(10);
+  const [zoom, setZoom] = useState(city_zoom);
 
   const rides = useRides(region_id);
 
@@ -58,7 +58,7 @@ export default function Map({Hidden}) {
     if (map.getLayer("rides")) {
       map.removeLayer("rides");
   }
-  
+
   if (map.getSource("rides")) {
       map.removeSource("rides");
   }
@@ -99,7 +99,7 @@ export default function Map({Hidden}) {
       center: [lng, lat],
       zoom: zoom
     });
-    
+
     // Set map state as map.
     setMap(thisMap)
   }, []);
@@ -108,16 +108,16 @@ export default function Map({Hidden}) {
   // Run Effect if map updates
   useEffect(() => {
     if (!map) return; // wait for map to initialize
-    
+
     // Add a callback on movement
     map.on('move', () => {
       let newLat = map.getCenter().lat.toFixed(4)
       let newLong = map.getCenter().lng.toFixed(4)
-      
+
       setLng(old=>newLong);
       setLat(old=>newLat);
       setZoom(old=>map.getZoom().toFixed(2));
-      
+
       // Update Region With new coords
       CheckRegionWithCoord([newLat, newLong])
     });
@@ -125,7 +125,7 @@ export default function Map({Hidden}) {
     const handleShowInfo = (e)=>{
 
       let coordinates = e.features[0].geometry.coordinates[0];
-      
+
       while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
         coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
         }
@@ -148,12 +148,12 @@ export default function Map({Hidden}) {
           }
         ))
         popupNode.render(
-          <Popup 
-            lang={lang} 
-            flow={flowName} 
-            pod={podName} 
-            satisfaction={satisfaction} 
-            rideChar={ride_characteristics} 
+          <Popup
+            lang={lang}
+            flow={flowName}
+            pod={podName}
+            satisfaction={satisfaction}
+            rideChar={ride_characteristics}
             rideDes={ride_description}
           />
         )
@@ -177,24 +177,24 @@ export default function Map({Hidden}) {
     map.on('click', "rides", handleShowInfo)
 
     map.on('mouseenter', 'rides', handleMouseEnter);
-       
+
     // Change it back to a pointer when it leaves.
     map.on('mouseleave', 'rides', handleMouseExit);
 
     return function(){
     }
-    
+
   }, [map]);
 
   useEffect(()=>{
     if (!selectedRide) return
     popupNode.render(
-      <Popup 
-        lang={lang} 
-        flow={selectedRide.flowName} 
-        pod={selectedRide.podName} 
-        satisfaction={selectedRide.satisfaction} 
-        rideChar={selectedRide.ride_characteristics} 
+      <Popup
+        lang={lang}
+        flow={selectedRide.flowName}
+        pod={selectedRide.podName}
+        satisfaction={selectedRide.satisfaction}
+        rideChar={selectedRide.ride_characteristics}
         rideDes={selectedRide.ride_description}
       />
     )
@@ -213,6 +213,7 @@ export default function Map({Hidden}) {
   useEffect(()=>{
     if (!map) return; // wait for map to initialize
     map.setCenter([region_coords[1], region_coords[0]])
+    map.setZoom(city_zoom)
   }, [region_coords, map])
 
 

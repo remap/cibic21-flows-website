@@ -1,5 +1,5 @@
 .Gallery{
-  height: 70vh;
+  height: 60vh;
   overflow:scroll;
 	color: white;
 	text-align: center;
@@ -25,4 +25,21 @@
 .gallery-item:hover img {
   opacity: 0.8;
   cursor:pointer;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.Gallery::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.Gallery {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+@media (max-width: 480px) {
+  #gallery {
+    column-count:3;
+  }
 }

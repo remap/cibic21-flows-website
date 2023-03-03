@@ -8,7 +8,9 @@ function Footer({ChangeView}) {
   return (
     <footer>
         <Switcher OnChange={ChangeView} />
-        <a href="https://cibic.bike/" target="_blank" rel="noopener noreferrer"><img src={logo} className="logo" alt="CiBiC Civic Bicycle Commuting" /></a>
+        <div class="logo-footer">
+          <a href="https://cibic.bike/" target="_blank" rel="noopener noreferrer"><img src={logo} className="logo" alt="CiBiC Civic Bicycle Commuting" /></a>
+        </div>
     </footer>
   );
 }

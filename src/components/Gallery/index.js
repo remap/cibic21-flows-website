@@ -32,6 +32,15 @@ const Gallery = ({Hidden})=>{
     setSelectedImageIndex(null);
   };
 
+  const handleArrowLeft = () => {
+    setSelectedImageIndex((selectedImageIndex + images.length - 1) % images.length);
+  };
+
+  const handleArrowRight = () => {
+    setSelectedImageIndex((selectedImageIndex + 1) % images.length);
+  };
+
+
   return (
     <div className={classNames("Gallery", {"hidden": !Hidden})}>
       <div id="gallery" className="gallery-container">
@@ -48,10 +57,14 @@ const Gallery = ({Hidden})=>{
         {selectedImageIndex !== null && (
           <Lightbox
             mainSrc={images[selectedImageIndex].src}
+            nextSrc={images[(selectedImageIndex+1) % images.length].src}
+            prevSrc={images[(selectedImageIndex + images.length - 1) % images.length].src}
             onImageLoad={() => {
               window.dispatchEvent(new Event('resize'));
             }}
             onCloseRequest={closeLightbox}
+            onMovePrevRequest={handleArrowLeft}
+            onMoveNextRequest={handleArrowRight}
             // imageCaption={images[selectedImageIndex].caption}
           />
         )}

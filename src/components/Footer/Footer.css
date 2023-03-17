@@ -8,6 +8,15 @@ footer {
   margin-top:10px;
 }
 
+.footer-small {
+  color:white;
+  font-size:7px;
+  width:90%;
+  text-align:center;
+  margin:0 auto;
+  padding-bottom:5px;
+}
+
 
 .logo {
   width:189px;

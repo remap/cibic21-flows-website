@@ -43,6 +43,10 @@
   font-weight:bold;
 }
 
+#about-footer {
+  font-size:13px;
+}
+
 
 @media (min-width: 768px) {
 

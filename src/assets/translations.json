@@ -26,6 +26,16 @@
 		"es": "Para conocer más acerca de cómo participar en CiBiC",
 		"zh": "若您想瞭解更多有關參與 CiBiC 的資訊，"
 	},
+  "aboutfooter":{
+    "en": "Supported by the CIVIC Innovation Challenge: Communities and Mobility, a collaboration between the National Science Foundation and the Department of Energy, Vehicle Transportation Office. NSF Award Number CNS-2133309. Any opinions, findings, conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect those of the National Science Foundation.",
+    "es": "Con el apoyo del CIVIC Innovation Challenge: Communities and Mobility, una colaboración entre la National Science Foundation y la Oficina de Transporte de Vehículos del Departamento de Energía. Premio NSF Número CNS-2133309. Todas las opiniones, hallazgos, conclusiones o recomendaciones expresadas en este material pertenecen al autor o autores y no reflejan necesariamente las de la National Science Foundation.",
+    "zh": "得到 CIVIC 创新挑战赛的支持：社区和流动性，这是美国国家科学基金会与能源部车辆运输办公室的合作项目。 NSF 奖号 CNS-2133309。本材料中表达的任何意见、发现、结论或建议均为作者的意见，不一定反映国家科学基金会的意见。"
+  },
+  "copytext": {
+    "en": "© Copyright 2022 Regents of the University of California. All rights reserved.",
+    "es": "© Copyright 2022 Regentes de la Universidad de California. Reservados todos los derechos.",
+    "zh": "© 版权所有 2022 加州大学董事会。版权所有。"
+  },
 	"cibicLink":{
 		"en": "visit our website!",
 		"es": "¡visita nuestro Website!",

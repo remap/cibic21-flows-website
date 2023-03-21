@@ -16,11 +16,19 @@ const Gallery = ({Hidden})=>{
   useEffect(() => {
     GetPhotoList(region_name).then((data) => {
       data.reverse();
-      setImages(data.map((src, index) => ({
-        id: index,
-        src: src,
-        alt: `Image ${index}`
-      })));
+      setImages(data.map((src, index) => {
+        let datetimeString = src.split('2F').slice(-1)[0].split('.')[0]
+        if(datetimeString.length > 10){
+          datetimeString = datetimeString.substring(0, datetimeString.length-1)
+        }
+        let theDate = new Date(parseInt(datetimeString))
+        return{
+          id: index,
+          src: src,
+          alt: `Image ${index}`,
+          caption: `${theDate.toLocaleString()}`
+        }
+      }));
     });
   }, [region_name]);
 
@@ -65,7 +73,7 @@ const Gallery = ({Hidden})=>{
             onCloseRequest={closeLightbox}
             onMovePrevRequest={handleArrowLeft}
             onMoveNextRequest={handleArrowRight}
-            // imageCaption={images[selectedImageIndex].caption}
+            imageCaption={images[selectedImageIndex].caption}
           />
         )}
       </div>

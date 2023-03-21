@@ -20,7 +20,6 @@ const VizGallery = ({Hidden})=>{
 
   useEffect(() => {
     GetVizPhotoList(region_name).then((data) => {
-      data.reverse();
       setImages(data.map((src, index) => {
         let datetimeString = src.split('2F').slice(-1)[0].split('.')[0]
         if(datetimeString.length > 10){
@@ -30,8 +29,7 @@ const VizGallery = ({Hidden})=>{
         return{
           id: index,
           src: src,
-          alt: `Image ${index}`,
-          caption: `${theDate.toLocaleString()}`
+          alt: `Image ${index}`
         }
       }));
     });
@@ -78,7 +76,7 @@ const VizGallery = ({Hidden})=>{
             onCloseRequest={closeLightbox}
             onMovePrevRequest={handleArrowLeft}
             onMoveNextRequest={handleArrowRight}
-            imageCaption={images[selectedImageIndex].caption}
+            //imageCaption={images[selectedImageIndex].caption}
           />
         )}
       </div>
@@ -98,7 +96,7 @@ function Viz({Hidden}) {
   const {region_name} = useContext(RegionContext);
   return (
     <div id="viz" className={classNames({"hidden": !Hidden, "region-LA":region_name==="la", "region-BA":region_name==="ba"})}>
-      {/*<VizGallery/>*/}
+      <VizGallery/>
     </div>
   );
 }

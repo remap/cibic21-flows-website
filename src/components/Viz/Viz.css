@@ -1,18 +1,9 @@
 #viz {
   height:60vh;
   overflow:hidden;
-  background-color:black;
-  background-size:cover;
-  background-position:center center;
 }
 
-.region-LA{
-  background-image: url('https://d1a1668ubdx5yp.cloudfront.net/renderings/LA-recent.jpg');
-}
 
-.region-BA{
-  background-image: url('https://d1a1668ubdx5yp.cloudfront.net/renderings/BA-recent.jpg');
-}
 
 @media only screen and (min-width: 992px) {
   #viz {

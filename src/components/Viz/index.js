@@ -10,7 +10,7 @@ import 'react-image-lightbox/style.css'
 import './VizGallery.css'
 import { GetVizPhotoList } from '../../utils/cibic_actions';
 
-
+// eslint-disable-next-line
 const VizGallery = ({Hidden})=>{
 
   const [selectedImageIndex, setSelectedImageIndex] = useState(null);

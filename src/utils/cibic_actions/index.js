@@ -7,7 +7,7 @@
  */
 export const GetGeoJSONFlows = async (region) =>{
 	//TODO Differentiate regions
-	return fetch("https://d1yts6u8a9himl.cloudfront.net/web_viz.json").then(data=>{
+	return fetch("https://d1a1668ubdx5yp.cloudfront.net/data/web_viz.json").then(data=>{
 		return data.json()
 	})
 }
@@ -43,6 +43,32 @@ export const GetRenderedMapViews = async (startDate, endDate) => {
 }
 
 
-export const GetPhotoList = async(number, page)=>{
+export const GetPhotoList = async(region_id)=>{
+	let cdn_photo_url = "https://d1a1668ubdx5yp.cloudfront.net/photos/"
+
+	if(region_id === "la"){
+		return fetch('https://d1a1668ubdx5yp.cloudfront.net/data/LA-gallery.json').then((data)=>{
+			return data.json()
+		}).then((data)=>{
+			return data.map((e)=> cdn_photo_url+e)
+		})
+	}
+	if(region_id === "ba"){
+		return fetch('https://d1a1668ubdx5yp.cloudfront.net/data/BA-gallery.json').then((data)=>{
+			return data.json()
+		}).then((data)=>{
+			return data.map((e)=> cdn_photo_url+e)
+		})
+	}
+}
+
+export const GetVizPhotoList = async(region_id)=>{
+ 
+	let renderids = ["-01.jpg", "-02.jpg", "-03.jpg", "-04.jpg", "-05.jpg", "-06.jpg", "-07.jpg", "-08.jpg"]
+
+	let cdn_photo_url = "https://d1a1668ubdx5yp.cloudfront.net/renderings/"
+
+	let photolist = renderids.map((e)=>cdn_photo_url+ region_id.toUpperCase() +e)
+	return photolist
 
 }

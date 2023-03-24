@@ -10,6 +10,7 @@ const RegionProvider = ({children})=>{
 	const [userRegion, setUserRegion] = useState(cities[0].id)
 	const [regionCoords, setRegionCoords] = useState([cities[0].lat, cities[0].long])
 	const [userLang, setUserLang] = useState("en")
+  const [cityZoom, setCityZoom] = useState(cities[0].zoom)
 
 	useEffect(()=>{
 		GetLang()
@@ -17,11 +18,10 @@ const RegionProvider = ({children})=>{
 
 	const GetRegion = ()=>{
 		navigator.geolocation.getCurrentPosition((data)=>{
-			console.log('got coords')
 			let region = findClosestCity(data.coords.latitude, data.coords.longitude)
 			setRegionCoords([region.lat,region.long])
+      setCityZoom(region.zoom)
 			setUserRegion(region.id)
-			console.log("region: ", region)
 		}, (err)=>{
 			console.log(err)
 		})
@@ -29,15 +29,14 @@ const RegionProvider = ({children})=>{
 
 	const CheckRegionWithCoord = (newCoords)=>{
 		let region = findClosestCity(newCoords[0], newCoords[1])
-		console.log(region)
 		setUserRegion(region.id)
 	}
 
 	const UpdateRegionWithID = (id)=>{
 		let region = cities.find( e => e.id === id)
 		setRegionCoords([region.lat, region.long])
-		console.log("Updated region: ", region.id)
 		setUserRegion(region.id)
+    setCityZoom(region.zoom)
 	}
 
 	const GetLang = ()=>{
@@ -54,7 +53,6 @@ const RegionProvider = ({children})=>{
 
 	const SetLang =(lang_code)=>{
 		if(accepted_langs.includes(lang_code)){
-			console.log('setting lang: ', lang_code)
 			setUserLang(lang_code)
 		}
 	}
@@ -64,6 +62,7 @@ const RegionProvider = ({children})=>{
 		lang: userLang,
 		region_name: userRegion,
 		region_coords: regionCoords,
+    city_zoom: cityZoom,
 		GetRegion: GetRegion,
 		CheckRegionWithCoord: CheckRegionWithCoord,
 		UpdateRegionWithID: UpdateRegionWithID,

@@ -11,8 +11,12 @@ function Translator() {
     document.getElementById('language-selector').classList.add('hidden');
   }
 
+  function closeSelector(e) {
+    document.getElementById('language-selector').classList.add('hidden');
+  }
+
   return (
-      <div id="language-selector" className="language-selector hidden">
+      <div id="language-selector" className="language-selector hidden" onClick={closeSelector}>
         <ul>
           <li id="en" className="translator-option" onClick={handleTranslation}>English</li>
           <li id="es" className="translator-option" onClick={handleTranslation}>Español</li>

@@ -1,28 +1,75 @@
 .mapboxgl-popup-content{
-  background-color: #292929 !important;
+  background-color: rgba(41, 41, 41, .9) !important;
   border: 1px solid white;
   border-radius: 0 !important;
-  color: white
+  color: white;
+  width: 339px;
+  padding: 0 !important;
 }
 
 .mapboxgl-popup-content button{
-  left: 0 !important;
+  background-image: url('../../assets/x.svg');
+  left: 16px !important;
+  top: 16px !important;
   right: initial !important;
-  color: grey;
-  font-size: 30px;
+  color: transparent;
+  box-sizing: border-box;
+  padding: 0 !important;
+  width: 19px;
+  height: 19px;
+  background-position: center;
 }
 
 .mapboxgl-popup-tip{
-  border-top-color: #292929 !important;
+  border-top-color: white !important;
 }
 
 .ride-info{
-  width: 339px;
-  height: 343px
+  max-width: 271px;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: auto;
+  margin-top: 60px;
+  margin-bottom: 30px;
 }
 
 
+.ride-info h3{
 
+font-family: 'Space Mono';
+font-style: normal;
+font-weight: 700;
+font-size: 14px;
+line-height: 21px;
+display: flex;
+align-items: center;
+letter-spacing: 0.25em;
+text-transform: uppercase;
+margin: 0;
+
+/* White */
+
+color: #FFFFFF;
+}
+
+.ride-info ul{
+  width: 95%;
+  padding-inline-start: 15px;
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.ride-info li{
+  margin-bottom: 15px;
+}
+
+.ride-info li b{
+  font-weight: 700;
+}
 
 .map-container, #map {
 height: 60vh;

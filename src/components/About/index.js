@@ -4,7 +4,7 @@ import closeX from '../../assets/x.svg';
 import logo from '../../assets/cibic_round.png';
 
 import { RegionContext } from '../../app/regionContext';
-import translations from '../../assets/translations.json'
+import translations from '../../assets/translations.json';
 
 function About() {
   const {lang} = useContext(RegionContext)
@@ -15,8 +15,6 @@ function About() {
       aboutPopup.classList.toggle('hidden');
     }
   }
-
-  console.log(translations.aboutP1[lang])
 
   return (
       <div id="about" onClick={handleAbout} className="about-close hidden">
@@ -29,6 +27,7 @@ function About() {
             <p id="about-p1">{translations.aboutP1[lang]}</p>
             <p id="about-p2">{translations.aboutP2[lang]}</p>
             <p id="about-p3">{translations.aboutP3[lang]+" "}<a href="https://cibic.bike/" target="_blank" rel="noopener noreferrer">{translations.cibicLink[lang]}</a></p>
+            <p id="about-footer">{translations.aboutfooter[lang]}</p>
           </div>
         </div>
       </div>

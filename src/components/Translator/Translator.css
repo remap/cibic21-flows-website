@@ -1,15 +1,21 @@
 #language-selector {
+  z-index:998;
+  width:100%;
   position:fixed;
-  right:5px;
-  top:5px;
-  z-index:999;
-  background-color:#292929;
-  box-shadow:1px 1px 17px rgba(0,0,0,0.1);
+  top:0;
+  bottom:0;
+
 }
 
 #language-selector ul {
+  position:fixed;
+  right:5px;
+  top:5px;
   list-style:none;
   padding:5px 0;
+  background-color:#292929;
+  box-shadow:1px 1px 17px rgba(0,0,0,0.1);
+  z-index:999;
 }
 
 .translator-option {

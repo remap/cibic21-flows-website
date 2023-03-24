@@ -8,14 +8,42 @@ footer {
   margin-top:10px;
 }
 
+.footer-small {
+  color:white;
+  font-size:7px;
+  width:90%;
+  text-align:center;
+  margin:0 auto;
+  padding-bottom:5px;
+}
+
 
 .logo {
   width:189px;
   padding:10px;
 }
 
+.logo-footer {
+  margin-top:10px;
+  width:100%;
+  text-align:center;
+}
+
+@media (min-width: 1400px) {
+   .logo-footer {
+    position:fixed;bottom:0;
+   }
+}
+
 @media (orientation: landscape) and (max-width: 736px) {
    .logo {
     width:100px;
+   }
+}
+
+@media (orientation: portrait) and (min-height: 750px) {
+   .logo-footer {
+    position:fixed;
+    bottom:0;
    }
 }

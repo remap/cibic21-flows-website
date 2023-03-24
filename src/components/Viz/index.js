@@ -25,7 +25,6 @@ const VizGallery = ({Hidden})=>{
         if(datetimeString.length > 10){
           datetimeString = datetimeString.substring(0, datetimeString.length-1)
         }
-        let theDate = new Date(parseInt(datetimeString))
         return{
           id: index,
           src: src,

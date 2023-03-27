@@ -5,7 +5,7 @@ import { GetGeoJSONFlows } from "../cibic_actions"
 
 
 export const useRides = (region_id)=>{
-	const [rides, setRides] = useState([])
+	const [rides, setRides] = useState({})
 	
 	
 	useEffect(()=>{
@@ -13,8 +13,10 @@ export const useRides = (region_id)=>{
 			let lines = [] 
 			for(const ride of data){
 				let lineFeature = ride.features.find(e => e.geometry.type === "LineString") 
-				lineFeature['properties'] = ride.properties
-				lines.push(lineFeature)
+				if (lineFeature.geometry.coordinates){
+					lineFeature['properties'] = ride.properties
+					lines.push(lineFeature)
+				}
 			}
 			let collection = {
 				'type': 'FeatureCollection',

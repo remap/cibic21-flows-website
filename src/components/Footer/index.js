@@ -15,9 +15,9 @@ function Footer({ChangeView}) {
   return (
     <footer>
         <Switcher OnChange={ChangeView} />
-        <div class="logo-footer">
+        <div className="logo-footer">
           <a href="https://cibic.bike/" target="_blank" rel="noopener noreferrer"><img src={logo} className="logo" alt="CiBiC Civic Bicycle Commuting" /></a>
-          <p id="copytext" class="footer-small">{translations.copytext[lang]}</p>
+          <p id="copytext" className="footer-small">{translations.copytext[lang]}</p>
         </div>
     </footer>
   );

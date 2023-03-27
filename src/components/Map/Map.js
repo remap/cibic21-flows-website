@@ -62,7 +62,6 @@ export default function Map({Hidden}) {
   if (map.getSource("rides")) {
       map.removeSource("rides");
   }
-
     map.addSource('rides', {
            type:"geojson",
            data: these_rides

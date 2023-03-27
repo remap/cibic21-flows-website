@@ -18,13 +18,11 @@ const Gallery = ({Hidden})=>{
       data.reverse();
       setImages(data.map((src, index) => {
         let datetimeString = src.split('2F').slice(-1)[0].split('.')[0]
-        console.log(datetimeString)
         if(datetimeString.length > 13){
           datetimeString = datetimeString.substring(0, datetimeString.length-1)
         }
-        console.log(parseInt(datetimeString))
         let theDate = new Date(parseInt(datetimeString))
-        console.log(theDate)
+
         return{
           id: index,
           src: src,

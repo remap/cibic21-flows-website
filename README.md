@@ -25,6 +25,14 @@ Its highly advised to use another branch to develop on and then use a PR to merg
 
 The production site is hosted in an S3 bucket that is distributed with CloudFront.
 
+### Repository Secrets Required for Automatic Deploy:
+|Secret Name		| Secret Value |
+|--         		|--            |
+| AWS_S3_BUCKET 	| The name of the S3 bucket for deployment |
+| AWS_ACCESS_KEY_ID 	| An Access Key for the IAM User |
+| AWS_SECRET_ACCESS_KEY | The Access Key Secret for the IAM User |
+| DISTRIBUTION 		| The CloudFront Distribution ID for a cache invalidation |
+
 ## Contributors
 - [@leohque](https://github.com/leohque)
 - [@IanShelanskey](https://github.com/IanShelanskey)
